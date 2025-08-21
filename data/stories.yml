@@ -1,0 +1,87 @@
+version: "3.1"
+
+stories:
+- story: list available houses
+  steps:
+  - intent: list_houses_for_sale
+  - action: action_list_houses_for_sale
+  - intent: select_house
+    entities:
+      - house_choice: 3  
+  - action: action_select_house
+  
+- story: list houses by city
+  steps:
+  - intent: filter_houses_by_city
+  - action: action_filter_houses_by_city
+  - intent: select_house
+    entities:
+      - house_choice: 2
+  - action: action_select_house
+  
+- story: list houses by budget
+  steps:
+  - intent: list_houses_by_budget
+  - action: action_list_houses_by_budget
+  - intent: select_house
+    entities:
+      - house_choice: 1
+  - action: action_select_house
+  
+- story: list houses by area
+  steps:
+  - intent: list_houses_by_area
+  - action: action_list_houses_by_area
+  - intent: select_house
+    entities:
+      - house_choice: 4
+  - action: action_select_house
+  
+- story: filter by house type
+  steps:
+  - intent: filter_by_house_type
+  - slot_was_set:
+      - house_type: "apartments"
+  - action: action_filter_by_house_type
+  - intent: select_house
+    entities:
+      - house_choice: 5
+  - action: action_select_house
+  
+- story: filter by house size
+  steps:
+  - intent: filter_by_house_size
+  - slot_was_set:
+      - num_rooms: 5
+  - action: action_filter_by_house_size
+  - intent: select_house
+    entities:
+      - house_choice: 6
+  - action: action_select_house
+  
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye

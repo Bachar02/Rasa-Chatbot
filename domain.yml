@@ -1,0 +1,114 @@
+version: "3.1"
+
+intents:
+  - filter_houses_by_city
+  - list_houses_for_sale
+  - list_houses_by_budget
+  - list_houses_by_area
+  - filter_by_house_type
+  - filter_by_house_size
+  - select_house
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+entities:
+  - city
+  - budget
+  - area
+  - house_type
+  - num_rooms
+  - address
+  - house_choice  
+
+slots:
+  house_choice:
+    type: text
+    mappings:
+      - type: from_text
+        intent: select_house
+      
+  city:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: city
+        conditions:
+          - active_loop: null
+      - type: from_text
+  num_rooms:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: num_rooms
+        conditions:
+          - active_loop: null
+      - type: from_text
+  budget:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: budget
+        conditions:
+          - active_loop: null
+      - type: from_text
+  area:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: area
+        conditions:
+          - active_loop: null
+      - type: from_text
+  house_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: house_type
+  
+ # selected_house:
+ #   type: text
+ #   mappings:
+ #     - type: from_entity
+ #       entity: house_number
+ #       conditions:
+ #         - active_loop: null
+ #     - type: from_text
+       
+        
+actions:
+  - action_select_house
+  - action_list_houses_for_sale
+  - action_filter_houses_by_city
+  - action_list_houses_by_budget
+  - action_list_houses_by_area
+  - action_filter_by_house_type
+  - action_filter_by_house_size
+
+responses:
+  utter_greet:
+    - text: "Salut ! Comment ça va ?"
+
+  utter_cheer_up:
+    - text: "Voici quelque chose pour te remonter le moral :"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Cela t'a-t-il aidé ?"
+
+  utter_happy:
+    - text: "Super, continue comme ça !"
+
+  utter_goodbye:
+    - text: "Au revoir"
+
+  utter_iamabot:
+    - text: "Je suis un bot, alimenté par Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,60 @@
+#version: "3.1"
+#
+#rules:
+#- rule: Activate select house form for listing houses
+#  steps:
+#  - intent: list_houses_for_sale
+#  - action: action_list_houses_for_sale
+#  - action: select_house_form
+#  - active_loop: select_house_form
+#
+#- rule: Activate select house form for filtering by size
+#  steps:
+#  - intent: filter_by_house_size
+#  - action: action_filter_by_house_size
+#  - action: select_house_form
+#  - active_loop: select_house_form
+#
+#- rule: Deactivate select house form after submission
+#  condition:
+#  - active_loop: select_house_form
+#  steps:
+#  - action: select_house_form
+#  - active_loop: null
+#  - action: action_handle_selected_house  # Customize this action based on your needs
+#
+#- rule: List available houses
+#  steps:
+#  - intent: list_houses_for_sale
+#  - action: action_list_houses_for_sale
+#
+#- rule: List houses by city
+#  steps:
+#  - intent: filter_houses_by_city
+#  - action: action_filter_houses_by_city
+#
+#- rule: List houses by budget
+#  steps:
+#  - intent: list_houses_by_budget
+#  - action: action_list_houses_by_budget
+#
+#- rule: List houses by area
+#  steps:
+#  - intent: list_houses_by_area
+#  - action: action_list_houses_by_area
+#
+#- rule: Filter by house type
+#  steps:
+#  - intent: filter_by_house_type
+#  - action: action_filter_by_house_type
+#
+#- rule: Say goodbye anytime the user says goodbye
+#  steps:
+#  - intent: goodbye
+#  - action: utter_goodbye
+#
+#- rule: Say 'I am a bot' anytime the user challenges
+#  steps:
+#  - intent: bot_challenge
+#  - action: utter_iamabot
+#

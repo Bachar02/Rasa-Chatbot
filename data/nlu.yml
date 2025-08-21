@@ -1,0 +1,207 @@
+version: "3.1"
+
+nlu:
+
+- intent: select_house
+  examples: |
+    - Je prends la [deuxième](house_choice)
+    - Je choisis le numéro [3](house_choice)
+    - Je veux la maison numéro [4](house_choice)
+    - Je préfère le [cinquième](house_choice) terrain
+    - Je choisis la maison numéro [4](house_choice)
+    - Je prends la maison numéro [12](house_choice)
+
+
+- intent: filter_houses_by_city
+  examples: |
+    - Montre-moi les maisons à [Paris](city)
+    - Liste les maisons à [Essonne](city)
+    - Je cherche des maisons à [Hauts-de-Seine](city)
+    - Y a-t-il des maisons disponibles à [Yvelines](city) ?
+    - Avez-vous des maisons à [Val-de-Marne](city) ?
+    - Montre-moi les maisons à [Marseille](city)
+    - Trouve des maisons à [Lille](city)
+    - Des maisons à [Toulouse](city), s'il te plaît
+    - Recherchez des maisons à [Nice](city)
+
+- intent: list_houses_for_sale
+  examples: |
+    - Quelles sont les maisons disponibles à vendre ?
+    - Montre-moi les maisons disponibles à la vente.
+    - Quelles maisons sont à vendre ?
+    - Montre-moi les maisons en vente
+    - Y a-t-il des maisons disponibles ?
+    - Liste les maisons à acheter
+
+- intent: list_houses_by_budget
+  examples: |
+    - Quelles sont les maisons disponibles autour d'un budget de [100000](budget) ?
+    - Montre-moi des maisons dans un budget de [150000](budget).
+    - Je cherche des maisons autour de [200000](budget) euros.
+    - Mon budget est de [150000](budget) euros
+    - Montre-moi des maisons dans la gamme de [200000](budget) euros
+    - Je peux me permettre jusqu'à [250000](budget)
+    - Mon budget est de [300000](budget) euros
+    - Budget de [100000](budget) euros, montrez-moi des maisons
+    - Je veux des maisons autour de [150000](budget)
+    - Cherche des maisons avec un budget de [200000](budget)
+    - Je peux investir jusqu'à [250000](budget) euros
+
+- intent: list_houses_by_area
+  examples: |
+    - Quelles maisons sont disponibles avec au moins [120](area) mètres carrés ?
+    - Montre-moi des maisons avec une superficie de [430](area) mètres carrés.
+    - Je cherche des maisons dans la gamme de [150](area) mètres carrés.
+    - Peux-tu trouver des maisons autour de [200](area) mètres carrés ?
+    - Liste les maisons ayant [300](area) mètres carrés ou plus.
+    - Montre-moi des propriétés avec [250](area) mètres carrés.
+    - Quelles sont les propriétés disponibles avec [180](area) m² ?
+    - Je veux voir des maisons avec une superficie de [500](area) mètres carrés.
+    - Maison avec [120](area) m² ou plus
+    - Je cherche des maisons de [430](area) m²
+    - Trouvez-moi des maisons avec [150](area) m²
+    - Maisons disponibles avec au moins [300](area) m²
+
+- intent: filter_by_house_type
+  examples: |
+    - Montre-moi tous les [appartements](house_type) disponibles à vendre.
+    - Liste toutes les [maisons](house_type) disponibles à vendre.
+    - Quels sont les [terrains](house_type) disponibles à vendre.
+    - Liste les [parkings](house_type) disponibles à vendre.
+    - Trouve des [appartements](house_type)
+    - Liste des [maisons](house_type) disponibles
+    - Quels [terrains](house_type) à vendre ?
+    - Montre-moi des [parkings](house_type)
+
+- intent: filter_by_house_size
+  examples: |
+    - Quelles maisons ont [5](num_rooms) chambres.
+    - Montre-moi les maisons avec au moins [3](num_rooms) chambres.
+    - Je cherche des maisons avec un minimum de [4](num_rooms) chambres.
+    - Maisons avec [5](num_rooms) chambres
+    - Cherche maisons avec [3](num_rooms) chambres
+    - Montre des maisons de [4](num_rooms) chambres
+    - Trouve-moi des maisons avec au moins [4](num_rooms) chambres
+
+- intent: greet
+  examples: |
+    - hey
+    - bonjour
+    - salut
+    - bonjour là
+    - bon matin
+    - bonsoir
+    - moin
+    - salut là
+    - bonjour mec
+    - bonjour
+    - bonsoir
+    - bonne après-midi
+    - salut
+    - coucou
+    - bonjour
+    - hi
+    - hello
+
+- intent: goodbye
+  examples: |
+    - à plus
+    - au revoir
+    - à bientôt
+    - bonne nuit
+    - bye
+    - adieu
+    - passe une bonne journée
+    - à plus tard
+    - bye bye
+    - à bientôt
+    - adieu
+    - au revoir
+    - à la prochaine
+    - à demain
+    - take care
+
+- intent: affirm
+  examples: |
+    - oui
+    - ouais
+    - en effet
+    - bien sûr
+    - ça a l'air bien
+    - correct
+    - d'accord
+    - absolument
+    - oui, bien sûr
+    - parfait
+    - ça marche
+
+- intent: deny
+  examples: |
+    - non
+    - n
+    - jamais
+    - je ne pense pas
+    - je n'aime pas ça
+    - pas question
+    - pas vraiment
+    - non merci
+    - pas du tout
+    - je ne crois pas
+    - non, je préfère
+    - pas du tout
+
+- intent: mood_great
+  examples: |
+    - parfait
+    - génial
+    - incroyable
+    - je me sens comme un roi
+    - merveilleux
+    - je me sens très bien
+    - je suis super
+    - je suis excellent
+    - je vais sauver le monde
+    - super enthousiaste
+    - extrêmement bien
+    - tellement parfait
+    - tellement bien
+    - tellement génial
+    - excellent
+    - super
+    - top
+    - fantastique
+    - au mieux
+
+- intent: mood_unhappy
+  examples: |
+    - ma journée a été horrible
+    - je suis triste
+    - je ne me sens pas très bien
+    - je suis déçu
+    - super triste
+    - je suis tellement triste
+    - triste
+    - très triste
+    - mécontent
+    - pas bien
+    - pas très bien
+    - extrêmement triste
+    - tellement triste
+    - tellement triste
+    - je ne suis pas bien
+    - vraiment pas bien
+    - pas de bonne humeur
+    - malheureux
+    - déprimé
+
+- intent: bot_challenge
+  examples: |
+    - es-tu un bot ?
+    - es-tu un humain ?
+    - est-ce que je parle à un bot ?
+    - est-ce que je parle à un humain ?
+    - es-tu un robot ?
+    - est-ce un bot ici ?
+    - parles-tu comme un humain ?
+    - tu es un bot, non ?
+    - es-tu programmé pour ça ?
